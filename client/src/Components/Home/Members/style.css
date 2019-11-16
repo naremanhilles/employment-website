@@ -1,0 +1,44 @@
+
+.member-card__avatar {
+  border-radius: 50% !important;
+  width: 50px !important;
+}
+
+.member-card {
+  min-height: 220px !important;
+  margin-bottom: 15px !important;
+  cursor: pointer;
+  min-width: 150px !important;
+  display: flex !important;
+}
+
+.member-card:hover {
+  box-shadow: 0px 1px 12px #c3c3c3;
+}
+.member-card__skills{
+  display: flex;
+  flex-wrap: wrap;
+}
+.member-card__skill {
+  font-size: 14px;
+  margin-left: 5px;
+  background-color: #0f9caf52;
+  padding: 6px;
+  color: #494949;
+  border-radius: 3px;
+  width: fit-content;
+}
+.member-card__skill:nth-child(1) {
+  margin-left: 0px;
+}
+
+.member-card__username {
+  color: rgba(19, 18, 18, 0.8);
+  font-size: 15px;
+  font-weight: bold;
+  position: absolute;
+  top: 7px;
+  left: 70px;
+  max-width: 100px;
+  padding-right: 5px;
+}

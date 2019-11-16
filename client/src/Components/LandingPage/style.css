@@ -1,0 +1,147 @@
+.landing__header{
+  width: 100%;
+  height: calc(100vh - 60px);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.253), rgba(0, 0, 0, 0.616)),
+    url('header.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin: 0 !important;
+}
+
+.landing__tweet {
+  color: white;
+  margin: 0 auto;
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 2.1rem;
+  line-height: 50px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.landing__tweet::before {
+  margin-right: 0.6rem;
+  content: open-quote;
+}
+
+.landing__tweet::after {
+  margin-left: 0.6rem;
+  content: close-quote;
+}
+
+.landing__title {
+  color: #0F9CAF;
+  font-size: 1.9rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  word-spacing: 7px
+}
+
+.landing__title--center {
+  text-align: center;
+  padding: 20px 0 30px;
+}
+
+.landing__aboutus {
+  display: flex;
+  min-height: 20rem;
+  margin: 0 !important;
+  margin-top: 2rem;
+  margin-bottom: 1rem !important;
+}
+
+.landing__info {
+  padding: 0 4rem;
+  flex: 1;
+  padding: 0 2rem 0 2rem !important;
+}
+
+.about__paragraph {
+  color: rgba(51, 51, 51, 0.9);
+  font-weight: lighter;
+  text-align: justify;
+}
+
+.about__img {
+  overflow: hidden;
+  flex: 1;
+  min-height: 20rem;
+  background-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80');
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.carousel-indicators li { 
+  width: 21px !important; 
+  height: 21px !important; 
+  border-radius: 50%;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  background: #fff !important;
+  position: relative !important;
+  border: 2px solid #0F9CAF !important
+  
+}
+
+.carousel-indicators li::after{ 
+  content: "" !important;
+  position: absolute !important;
+  width: 15px !important;
+  height: 15px !important;
+  border-radius: 50% !important;
+  background: #0F9CAF !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform:translate(-47%, -51%) !important;
+}
+
+.carousel-indicators .active {
+  border: 2px solid #0F9CAF !important;
+}
+
+.carousel{
+  margin-bottom: 3rem !important;
+}
+
+@media only screen and (max-width: 500px) {
+  .landing__aboutus {
+    flex-direction: column;
+  }
+
+  .landing__header {
+    height: 300px;
+  }
+  .landing__tweet {
+    font-size: 1.4rem;
+    width: 80%;
+    line-height: 25px;
+  }
+
+  .landing__title{
+    font-size: 1.25rem;
+  }
+
+  .landing__aboutus {
+    margin-bottom: 0 !important;
+    text-align: center;
+  }
+  .about__paragraph{
+    text-align: center;
+  }
+  .about__img{
+    border-radius: 5px 5px 0 0;
+  }
+
+  .carousel {
+    margin-bottom: 2rem !important;
+  }
+}

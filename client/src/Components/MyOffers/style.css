@@ -1,0 +1,123 @@
+.myoffers__header {
+  color: rgba(51, 51, 51, 0.8);
+  font-size: 32px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(51, 51, 51, 0.8);
+  width: fit-content;
+  margin: 2rem 0 1.3rem 0.4rem;
+}
+
+.myoffer__card{
+  border: 1px solid rgba(234, 234, 234, 0.9) !important;
+  border-radius: 0.3rem !important;
+  cursor: pointer;
+  margin: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.myoffer__card:hover {
+  box-shadow:  0 0 30px -15px rgba(0, 0, 0, 0.3);
+}
+
+.myoffers__delete {
+  display: none;
+  border: none;
+  background: none;
+  position: absolute !important;
+  top: 14px !important;
+  right: 11px !important;
+  padding-top: 0 !important;
+  height: 20px;
+  width: 30px;
+}
+
+.myoffers__delete:focus{
+  outline: none;
+}
+
+.myoffer__card:hover .myoffers__delete{
+  color: red;
+  font-size: 16px;
+  display: block;
+  text-align: center;
+  padding: 0 !important;
+}
+
+.myoffers__body {
+  font-family: Lato;
+  letter-spacing: 0.4px;
+}
+
+.myoffers__position {
+  color: #0F9CAF !important;
+}
+
+.confirm__delete{
+  border-top: none !important;
+}
+
+.myoffers__title {
+  color: rgba(51, 51, 51, 0.8) !important ;
+}
+
+.myoffers__body {
+  text-align: center;
+}
+
+.myoffer__card-header{
+  border-bottom: none !important;
+  background: rgba(238, 238, 238, 0.3) !important;
+}
+
+.myoffers__status{
+  float: left;
+  text-transform: capitalize;
+}
+
+.myoffers__delete-btn{
+  float: right;
+}
+
+.myoffers__status,
+.myoffers__delete-btn {
+  letter-spacing: 1px;
+  color: rgba(238, 238, 238, 0.3);
+}
+
+.myoffers__status--completed{
+  color: #0A8F07;
+}
+
+.myoffers__status--pending {
+  color: #F77D0E;
+}
+
+.myoffers__status--active {
+  color: #1BA7E2;
+}
+
+.myoffers__status--finished{
+  color: red;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .myoffers__title {
+    left: 130px;
+    font-size: 16px;
+  }
+
+  .myoffer__card {
+    margin-bottom: 0.7rem;
+  }
+
+  .myoffers__delete {
+    display: block;
+  }
+
+  .myoffers__delete{
+    color: red !important;
+    font-size: 14px;
+  }
+
+} 
