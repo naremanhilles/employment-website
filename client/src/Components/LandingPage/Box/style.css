@@ -1,0 +1,33 @@
+.section__div{
+  width: 33.33333333%;
+  float: right;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.dark_section {
+  background: rgba(0,0,0,0.1);
+  color: #f1f1f1;
+  padding: 15px;
+  border-radius: 4px !important;
+  margin: 10px 0;
+}
+.section_icon{
+  font-size: 4em;
+}
+.bottom_section_icon{
+  font-size: 28px;
+}
+.mt-10{
+  line-height: 1.1;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+.section_desc {
+  line-height: 24px;
+  font-size: 12px;
+  margin: 15px 5px;
+  color: #dfdfdf;
+}

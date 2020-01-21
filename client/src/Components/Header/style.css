@@ -4,12 +4,26 @@
 }
 
 .Navbar__container.bg-light {
-  background-color: #0f9caf !important;
+  background-color: #34495e !important;
   color: #fff !important;
+
 }
 
 .navbar__brand {
+  display: block;
   font-size: 25px;
+}
+.navbar-logo{
+  color: #f1f1f1 !important;
+  padding: 15px 10px;
+  font-size: 18px;
+  line-height: 20px;
+  height: 50px;
+  float: right;
+  margin-top: -5px;
+}
+.navbar-logo:hover{
+  text-decoration: none;
 }
 
 .nav__avatar {
@@ -31,8 +45,21 @@
 }
 
 .navbar__link:hover {
-  color: rgba(51, 51, 51, 0.7) !important;
+  color:#80ccea !important;
 }
+@media (min-width: 992px){
+  .navbar-header {
+    float: right;
+}
+}
+
+
+@media (min-width: 992px){
+  .navbar-header {
+    float: left;
+}
+}
+
 
 .Navbar__container .active {
   color: #eee !important;
@@ -80,3 +107,6 @@
   width: 110px;
   height: 65px;
 }
+
+
+

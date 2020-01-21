@@ -15,6 +15,7 @@ export default class SignUp extends Component {
   };
 
   handleClick = e => {
+    console.log(1111111111111111111);
     e.preventDefault();
     const { setUserInfo } = this.props;
     const { username, password: pass, email, confPassword } = this.state;
@@ -41,12 +42,16 @@ export default class SignUp extends Component {
           .then(res => res.json())
           .then(response => {
             if (response.data) {
+              console.log(22222222222222222);
+
               const { history } = this.props;
               auth.setUserInfo(response.data[0]);
               auth.isAuthenticated = true;
               setUserInfo(response.data);
               history.push('/home');
             } else {
+              console.log(333333333333333);
+
               this.setState({ errormsg: response.error.msg });
             }
           })

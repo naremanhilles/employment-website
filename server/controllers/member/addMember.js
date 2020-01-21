@@ -7,6 +7,7 @@ const { singUpSchema } = require('../../helpers/validation-schema');
 const { hashingPass } = require('../../helpers/hashPassword');
 
 module.exports = (req, res, next) => {
+  console.log(8888888);
   const memberInfo = { ...req.body };
   singUpSchema.validate(memberInfo, {
     abortEarly: false,
@@ -14,10 +15,13 @@ module.exports = (req, res, next) => {
     .then(() => {
       checkUsername(memberInfo.username)
         .then(({ rows: validUsername }) => {
+          console.log(validUsername, 115599111111111);
           if (validUsername[0]) throw next({ code: 400, msg: 'The username already exists ' });
           else return checkEmail(memberInfo.email);
         })
         .then(({ rows: validEmail }) => {
+          console.log(validEmail, 5477777);
+
           if (validEmail[0]) throw next({ code: 400, msg: 'The email already exists' });
           else return hashingPass(memberInfo.pass);
         })
@@ -27,10 +31,18 @@ module.exports = (req, res, next) => {
             id: member[0].id, username: member[0].username, avatar: member[0].avatar,
           };
           const jwt = sign(payLoad, process.env.SECRET);
+          console.log(44444444444444444);
+
           res.cookie('jwt', jwt, { maxAge: 7200000 });
           return res.status(200).send({ error: null, data: [payLoad] });
         })
-        .catch(err => next(err));
+        .catch((err) => {
+          console.log(7878, err);
+          next(err);
+        });
     })
-    .catch(err => next({ code: 400, msg: err.errors }));
+    .catch((err) => {
+      console.log(85555555555589);
+      next({ code: 400, msg: err.errors });
+    });
 };

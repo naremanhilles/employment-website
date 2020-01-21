@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Notification from './Notification';
 import './style.css';
 import auth from '../../auth/auth';
-import logo from '../../assets/img/logo.png';
+import logon from './logo-small.png';
 
 class Header extends Component {
   state = {
@@ -58,26 +58,47 @@ class Header extends Component {
     } = this.state;
     return (
       <Navbar bg="light" expand="lg" className="Navbar__container">
-        <Navbar.Brand>
-          <Link to="/" className="navbar__link navbar__brand">
-            <img src={logo} alt="imageLogo" className="logo" />
-          </Link>
-        </Navbar.Brand>
+        <Col md="auto">
+          <Nav>
+            <NavLink to="/Signup" className="navbar__link">
+              <div className="navbar__link--text">
+                {' '}
+                تسجيل الدخول
+                <i className="fas fa-user" />
+              </div>
+            </NavLink>
+            <NavLink to="/login" className="navbar__link">
+              <div className="navbar__link--text">
+                {' '}
+                عضوية جديدة
+                <i className="fas fa-power-off" />
+              </div>
+            </NavLink>
+          </Nav>
+        </Col>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="navigation">
           {!islogged && (
             <Col md="auto">
               <Nav>
                 <NavLink to="/home" className="navbar__link">
-                  <div className="navbar__link--text">Home</div>
+                  <div className="navbar__link--text">
+                    مركز المساعدة
+                    <i className="fa fa-anchor" />
+                  </div>
                 </NavLink>
                 <NavLink to="/login" className="navbar__link">
-                  <div className="navbar__link--text">Login</div>
+                  <div className="navbar__link--text">
+                    الخصائص والمميزات
+                    <i className="fa fa-trophy" />
+                  </div>
                 </NavLink>
-
-                <NavLink to="/Signup" className="navbar__link">
-                  <div className="navbar__link--text">Signup</div>
-                </NavLink>
+                <div to="/" className="navbar-header">
+                  <a className="navbar-logo" href="/">
+                    مدير المشاريع
+                    <img src={logon} />
+                  </a>
+                </div>
               </Nav>
             </Col>
           )}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
 import PrivatePages from './PrivatePages';
+
 import auth from './auth/auth';
 
 import './style.css';
@@ -19,6 +20,10 @@ import {
 
 export default class App extends Component {
   state = {
+    items: [
+      { id: 1, name: 'gghgg', age: 18 },
+      { id: 2, name: 'uuuu', age: 19 },
+    ],
     islogged: null,
     userInfo: null,
   };

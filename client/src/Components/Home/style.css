@@ -11,6 +11,7 @@
 .home__contanier {
   width: 90%;
   margin: 50px auto !important;
+
 }
 
 .home__filter .autComplete-dev .form-control {
@@ -145,4 +146,57 @@
     top: 14px;
     right: 12px;
   }
+}
+
+
+
+.main-container {
+  margin: 20px;
+  min-height: 620px;
+  text-align: right;
+}
+.jumbotron.inversed {
+  background: #34495e;
+  color: #fff;
+  border-radius: 0px;
+  padding: 30px;
+}
+.no-margin {
+  margin: 0px !important;
+}
+.support_btn{
+  font-weight: normal !important;
+  border-color: transparent;
+  font-size: 14px;
+  float: left !important;
+  padding: 10px 16px;
+  line-height: 1.33;
+  border-radius: 6px;
+  color: #fff;
+  background-color: #428bca;
+  display: inline-block;
+  margin-bottom: 0;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.support_btn:hover{
+  color: #fff;
+  text-decoration: none;
+background-color: #428bca;
+}
+.fa-arrow-left{
+  margin-right: 5px;
+}
+.white_container {
+  padding: 50px 40px 50px 40px;
+  text-align: right;
+  background: #fff;
+}
+.white_container p{
+  font-size: 14px;
 }
