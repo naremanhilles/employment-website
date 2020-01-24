@@ -373,7 +373,7 @@ import {
   Alert,
 } from 'react-bootstrap';
 
-import AutoCompleteTags from '../CommonComponents/AutoCompleteTags';
+import SupportBtn from '../CommonComponents/SupportBtn/index';
 import Offers from './Offers';
 import Members from './Members';
 
@@ -642,17 +642,10 @@ export default class Home extends Component {
     return (
       <div className="main-container">
         <div className="container">
-          <div className="jumbotron inversed no-margin">
-            <h2>
-              {' '}
-              الشروط و الأحكام <i className="fa fa-bullhorn" />
-              <a className="support_btn" href="/">
-                <i className="fa fa-arrow-left" />
-                مركز المساعدة
-              </a>{' '}
-            </h2>
-          </div>
-
+          <SupportBtn
+            page_title="الشروط و الأحكام"
+            title_icon="fa fa-bullhorn"
+          />
           <div className="white_container">
             <div className="page_content">
               <p>

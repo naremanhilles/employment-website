@@ -9,19 +9,19 @@ export default function Footer() {
         <ul id="footer_links">
           {' '}
           <li>
-            <a href="/">الخصائص والمميزات</a>
+            <a href="/features">الخصائص والمميزات</a>
           </li>{' '}
           <li>
-            <a href="/">مركز المساعدة</a>
+            <a href="/help">مركز المساعدة</a>
           </li>{' '}
           <li>
-            <a href="/">سياسة الخصوصية</a>
+            <a href="/privacy">سياسة الخصوصية</a>
           </li>{' '}
           <li>
             <a href="/">الشروط والأحكام</a>
           </li>{' '}
           <li>
-            <a href="/">اتصل بنا</a>
+            <a href="/contact">اتصل بنا</a>
           </li>{' '}
         </ul>
       </div>

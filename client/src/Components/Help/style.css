@@ -1,0 +1,19 @@
+.single_help_method {
+  background: #f1f1f1;
+  font-size: 14px;
+}
+.single_help_method a {
+  display: block;
+  padding: 30px 10px;
+  border: 1px solid #ddd;
+}
+a,a:hover{
+  text-decoration: none;
+}
+.i_font{
+  padding:20px;
+  font-size: 30px;
+}
+.mt-40 {
+  margin-top: 40px;
+}

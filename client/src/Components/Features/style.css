@@ -164,3 +164,28 @@
 .white_container p{
   font-size: 14px;
 }
+
+
+.single_feature {
+  background: #f1f1f1;
+  border-bottom: 4px solid #ddd;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: right;
+}
+.single_feature ul li{
+  text-align: right
+}
+.nice_font{
+  font-size: 18px;
+}
+.single_feature_text {
+  font-size: 14px;
+  line-height: 24px;
+}
+.fa-star{
+  margin-left: 5px;
+}
+.fa-arrow-left{
+  margin-right: 5px;
+}

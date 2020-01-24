@@ -10,9 +10,11 @@ body,
 }
 .body-container {
   min-height: calc(100vh - 106px) !important;
-  background-color: #ccbbbb;
+  background-color: #E5E5E5;
 }
-
+ul{
+  list-style: none;
+}
 
 .loading {
   position: absolute;

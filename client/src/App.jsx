@@ -17,6 +17,11 @@ import {
   Footer,
   PageNotFound,
 } from './Components';
+import Privacy from './Components/Privacy/index';
+import Features from './Components/Features/index';
+import Contact from './Components/Contact/index';
+import Help from './Components/Help/index';
+import Support from './Components/Support/index';
 
 export default class App extends Component {
   state = {
@@ -78,6 +83,13 @@ export default class App extends Component {
                   )}
                 />
                 <Route exact path="/home" component={Home} />
+                <Route exact path="/privacy" component={Privacy} />
+                <Route exact path="/contact" component={Contact} />
+
+                <Route exact path="/features" component={Features} />
+                <Route exact path="/help" component={Help} />
+                <Route exact path="/support" component={Support} />
+
                 <Route path="/app" component={PrivatePages} />
                 <Route component={PageNotFound} />
               </Switch>

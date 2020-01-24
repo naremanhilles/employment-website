@@ -12,7 +12,7 @@ import Slider from './Slider';
 
 export default function LandingPage() {
   return (
-    <div className="body-container">
+    <>
       <Row className="landing__header">
         <Col>
           <h1 className="landing__tweet">
@@ -35,16 +35,27 @@ export default function LandingPage() {
           </h1>
         </Col>
       </Row>
-      <div className="landing_statistics">
-        <h1>
-          مدير المشاريع في أرقام
-          <i className="far fa-chart-bar" />
-        </h1>
-        <CountUp stat_title="مؤسسة" stat_desc="تدير أعمالها" end={1679} />
-        <CountUp stat_title="موظف" stat_desc="يتلقى المهام" end={4724} />
-        <CountUp stat_title="مشروع" stat_desc="تم البدء فيه" end={2309} />
-        <CountUp stat_title="مهمة" stat_desc="تم إسنادها" end={4867} />
-      </div>
+      <h2 className="landing__title landing__title--center">
+        تعامل**إنجاز**نقاش
+      </h2>
+      <Slider />
+      <Row className="landing__aboutus">
+        <Col className="about__info">
+          <h2 className="landing__title">About us</h2>
+          <p className="about__paragraph">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Consectetur libero velit soluta voluptas neque, reiciendis ullam,
+            quidem cupiditate sequi necessitatibus facilis perspiciatis quis
+            saepe voluptatum totam est, maxime suscipit ducimus? Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Debitis, excepturi
+            rerum! Tempora suscipit debitis distinctio itaque sed deleniti,
+            similique, officiis illo, quisquam tempore quos ullam eum ab dolorem
+            est quibusdam.
+          </p>
+        </Col>
+        <Col className="about__img" />
+      </Row>
+
       <div className="section_1">
         <div className="container">
           <div className="text-center">
@@ -161,6 +172,16 @@ export default function LandingPage() {
           </div>
         </div>
       </div>
+      <div className="landing_statistics">
+        <h1>
+          مدير المشاريع في أرقام
+          <i className="far fa-chart-bar" />
+        </h1>
+        <CountUp stat_title="مؤسسة" stat_desc="تدير أعمالها" end={1679} />
+        <CountUp stat_title="موظف" stat_desc="يتلقى المهام" end={4724} />
+        <CountUp stat_title="مشروع" stat_desc="تم البدء فيه" end={2309} />
+        <CountUp stat_title="مهمة" stat_desc="تم إسنادها" end={4867} />
+      </div>
       <div className="section_6 text-center">
         <div>
           <a href="/" className="section_6_btn">
@@ -172,24 +193,6 @@ export default function LandingPage() {
         <br />
         <br />
       </div>
-      {/* <h2 className="landing__title landing__title--center">Success stories</h2>
-      <Slider />
-      <Row className="landing__aboutus">
-        <Col className="about__info">
-          <h2 className="landing__title">About us</h2>
-          <p className="about__paragraph">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Consectetur libero velit soluta voluptas neque, reiciendis ullam,
-            quidem cupiditate sequi necessitatibus facilis perspiciatis quis
-            saepe voluptatum totam est, maxime suscipit ducimus? Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Debitis, excepturi
-            rerum! Tempora suscipit debitis distinctio itaque sed deleniti,
-            similique, officiis illo, quisquam tempore quos ullam eum ab dolorem
-            est quibusdam.
-          </p>
-        </Col>
-        <Col className="about__img" />
-      </Row> */}
-    </div>
+    </>
   );
 }
