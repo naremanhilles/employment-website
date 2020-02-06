@@ -50,7 +50,7 @@ export default class Login extends React.Component {
             if (prevPath) {
               return push(prevPath);
             }
-            return push('/home');
+            return push('/app/home');
           }
         })
         .catch(err => {
@@ -71,7 +71,7 @@ export default class Login extends React.Component {
       return (
         <Redirect
           to={{
-            pathname: '/home',
+            pathname: '/app/home',
             state: { from: location },
           }}
         />

@@ -1,0 +1,59 @@
+/*  */
+.mb-40 {
+  margin-bottom: 40px;
+}
+.single_faq_cat {
+  background: #f1f1f1;
+  border-bottom: 3px solid #ddd;
+
+  font-size: 24px;
+  display: block;
+  padding: 40px 0px;
+  color: #007bff;
+}
+.single_faq_cat:hover{
+  background: #ddd;
+  border-bottom: 3px solid #f1f1f1;
+}
+
+/*  */
+@media (min-width: 992px){
+  .col-sm-2 {
+    float: right;
+}
+}
+@media (min-width: 576px){
+  .col-sm-2 {
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+}
+
+}
+.fa-4x {
+  font-size: 3.3em;
+}
+.no-list{
+  list-style: none;
+}
+
+
+.positon_icon {
+  font-size: 1.4em;
+  margin-left: 4px;
+}
+.mb-20 {
+  margin-bottom: 20px;
+}
+.col-sm-2{
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px){
+  .col-sm-2 {
+    width: 16.66666667%;
+    float: right;
+
+}
+}

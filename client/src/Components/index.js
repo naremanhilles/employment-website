@@ -1,7 +1,7 @@
 import LandingPage from './LandingPage';
 import Login from './Login';
 import Signup from './Signup';
-import Home from './Home';
+import Termsconditions from './Termsconditions';
 import Header from './Header';
 import Footer from './Footer';
 import MyApplications from './MyApplications';
@@ -16,7 +16,7 @@ export {
   LandingPage,
   Login,
   Signup,
-  Home,
+  Termsconditions,
   Header,
   Footer,
   MyApplications,

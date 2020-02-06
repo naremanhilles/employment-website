@@ -1,0 +1,68 @@
+.form {
+  /* flex-basis: 48%;
+  height: 100%;
+  background-color: var(--main-white);
+  padding: 2% 4% 0;
+  position: relative; */
+  
+  border-width: 0px;
+  border-radius: 0px !important;
+  border-bottom: 2px solid #ccc !important;
+  box-shadow: none !important;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  background-color: #fff;
+
+
+  
+}
+
+.steps {
+  margin-bottom: 4%;
+  text-align: justify;
+  margin-top: 4% !important;
+  width: 90% !important;
+  margin-left: 5% !important;
+}
+
+.item {
+  margin-bottom: 3%;
+}
+
+.cityItem {
+  margin-bottom: 0;
+}
+
+.white:hover {
+  color: var(--main-white);
+}
+
+.ml-0 {
+  margin-left: 0;
+}
+
+@media (max-width: 600px) {
+  .form {
+    flex-basis: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

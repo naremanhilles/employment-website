@@ -9,12 +9,10 @@ export default class Privacy extends Component {
       <div className="main-container">
         <div className="container">
           <SupportBtn
-            page_title="أهلاً بك فى مركز المساعدة"
-            title_icon="fa fa-anchor"
-            paragraph="
-            مركز المساعدة قد صمم خصيصاً لمساعدتك للوصول لحلول المشاكل و إجابات
-            الإستفسارات التى تواجهك. كما يسهل عليك عملية التواصل معنا
-          "
+            page_title="تذاكر الدعم الفنى"
+            title_icon="fas fa-ticket-alt"
+            paragraph="تذاكر الدعم الفنى تساعدك على التواصل مع فريق إدارة الموقع
+            "
           />
           <div className="white_container">
             <div>

@@ -34,7 +34,7 @@ export default class Privacy extends Component {
                   {' '}
                   <div className="single_help_method faq">
                     {' '}
-                    <a href="https://pmngr.com/general/help/faq">
+                    <a href="/faq">
                       {' '}
                       <i className="fa fa-question-circle fa-flip-horizontal fa-4x" />{' '}
                       <h2 className="i_font">الأسئلة الشائعة</h2>{' '}

@@ -18,7 +18,7 @@ export default function Footer() {
             <a href="/privacy">سياسة الخصوصية</a>
           </li>{' '}
           <li>
-            <a href="/">الشروط والأحكام</a>
+            <a href="/terms-conditions">الشروط والأحكام</a>
           </li>{' '}
           <li>
             <a href="/contact">اتصل بنا</a>

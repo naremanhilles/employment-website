@@ -60,14 +60,14 @@ class Header extends Component {
       <Navbar bg="light" expand="lg" className="Navbar__container">
         <Col md="auto">
           <Nav>
-            <NavLink to="/Signup" className="navbar__link">
+            <NavLink to="/login" className="navbar__link">
               <div className="navbar__link--text">
                 {' '}
                 تسجيل الدخول
                 <i className="fas fa-user" />
               </div>
             </NavLink>
-            <NavLink to="/login" className="navbar__link">
+            <NavLink to="/Signup" className="navbar__link">
               <div className="navbar__link--text">
                 {' '}
                 عضوية جديدة
@@ -81,7 +81,7 @@ class Header extends Component {
           {!islogged && (
             <Col md="auto">
               <Nav>
-                <NavLink to="/home" className="navbar__link">
+                <NavLink to="/" className="navbar__link">
                   <div className="navbar__link--text">
                     مركز المساعدة
                     <i className="fa fa-anchor" />
@@ -106,7 +106,7 @@ class Header extends Component {
             <>
               <Col md="auto">
                 <Nav>
-                  <NavLink to="/home" className="navbar__link">
+                  <NavLink to="/app/home" className="navbar__link">
                     <div className="navbar__link--text">Home</div>
                   </NavLink>
 
