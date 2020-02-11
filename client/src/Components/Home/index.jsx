@@ -15,6 +15,11 @@ export default class MyApplications extends React.Component {
     message: '',
   };
 
+  redirectToView = () => {
+    const { history } = this.props;
+    if (history) history.push('/');
+  };
+
   // componentDidMount() {
   //   const userInfo = auth.getUserInfo();
   //   const { id } = userInfo;
@@ -36,12 +41,12 @@ export default class MyApplications extends React.Component {
         <div className="main-container">
           <div className={styles['form--container']}>
             <Form
-            // city={city}
-            // location={location}
-            // onCityChange={onCityChange}
-            // longitude={longitude}
-            // latitude={latitude}
-            // redirectToView={redirectToView}
+              // city={city}
+              // location={location}
+              // onCityChange={onCityChange}
+              // longitude={longitude}
+              // latitude={latitude}
+              redirectToView={this.redirectToView}
             />
           </div>
         </div>

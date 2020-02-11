@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
 import FirstStep from './First';
 import SecondStep from './SecondStep';
 import ThirdStep from './ThirdStep';
+import Four from './Four';
+import Five from './FiveStep';
+
 import styles from './form.module.css';
 
 const { Step } = Steps;
@@ -19,6 +22,12 @@ const steps = [
   },
   {
     title: 'Personal Information',
+  },
+  {
+    title: 'Peformation',
+  },
+  {
+    title: 'Peformation',
   },
 ];
 
@@ -38,6 +47,28 @@ class Form extends Component {
       extraInfo: '',
       preferredUse: '',
       thumbnail: '',
+      mobile: '',
+      name: '',
+      birthdate: '',
+      lastname: '',
+      country: 'السعودية',
+      gender: '',
+    },
+    stepFourValues: {
+      emptyPeriod: '',
+      extraInfo: '',
+      preferredUse: '',
+      thumbnail: '',
+      mobile: '',
+      name: '',
+      birthdate: '',
+      lastname: '',
+      country: 'السعودية',
+      gender: '',
+    },
+    stepFiveValues: {
+      name: '',
+      lastname: '',
     },
     stepThreeValues: {
       reporterName: '',
@@ -74,6 +105,26 @@ class Form extends Component {
     });
   };
 
+  getStepFourValues = values => {
+    const { stepFourValues } = this.state;
+    this.setState({
+      stepFourValues: {
+        ...stepFourValues,
+        ...values,
+      },
+    });
+  };
+
+  getStepFiveValues = values => {
+    const { stepFiveValues } = this.state;
+    this.setState({
+      stepFiveValues: {
+        ...stepFiveValues,
+        ...values,
+      },
+    });
+  };
+
   getStepThreeValues = values => {
     const { stepThreeValues } = this.state;
     this.setState({
@@ -97,91 +148,90 @@ class Form extends Component {
     );
   };
 
-  sendData = async () => {
-    const openNotificationWithIcon = (type, message) => {
-      notification[type]({
-        message,
-        duration: 3,
-      });
-    };
-    const {
-      stepOneValues,
-      stepTwoValues: { emptyPeriod, extraInfo, preferredUse, thumbnail },
-      stepThreeValues,
-    } = this.state;
+  // sendData = async () => {
+  //   const openNotificationWithIcon = (type, message) => {
+  //     notification[type]({
+  //       message,
+  //       duration: 3,
+  //     });
+  //   };
+  //   const {
+  //     stepOneValues,
+  //     stepTwoValues: { emptyPeriod, extraInfo, preferredUse, thumbnail },
+  //     stepThreeValues,
+  //   } = this.state;
 
-    // const { longitude, latitude, redirectToView } = this.props;
+  //   const { redirectToView } = this.props;
 
-    const formData = new FormData();
-    const building = {
-      ...stepOneValues,
-      // longitude,
-      // latitude,
-      emptyPeriod,
-      extraInfo,
-      preferredUse,
-      ...stepThreeValues,
-    };
+  //   const formData = new FormData();
+  //   const building = {
+  //     ...stepOneValues,
 
-    Object.keys(building).forEach(key => {
-      if (typeof building[key] === 'string')
-        building[key] = building[key].trim();
-      if (building[key] === '') delete building[key];
-    });
+  //     emptyPeriod,
+  //     extraInfo,
+  //     preferredUse,
+  //     ...stepThreeValues,
+  //   };
 
-    formData.append('data', JSON.stringify(building));
-    if (thumbnail && thumbnail[0])
-      formData.append('thumbnail', thumbnail[0].originFileObj);
+  //   Object.keys(building).forEach(key => {
+  //     if (typeof building[key] === 'string')
+  //       building[key] = building[key].trim();
+  //     if (building[key] === '') delete building[key];
+  //   });
 
-    const config = { headers: { 'Content-Type': 'multipart/form-data' } };
-    // try {
-    //   const { data } = await axios.post(
-    //     '/api/v1/report-building',
-    //     formData,
-    //     config
-    //   );
-    //   if (data.statusCode === 201) {
-    //     openNotificationWithIcon(
-    //       'success',
-    //       'Great !! You added the empty building successfully'
-    //     );
-    //     redirectToView();
-    //   } else if (data.statusCode === 400) {
-    //     openNotificationWithIcon('error', data.error);
-    //   } else if (data.statusCode === 409) {
-    //     openNotificationWithIcon('info', 'The building is already exist');
-    //   }
-    // } catch (err) {
-    //   this.setState({ loading: false });
-    //   openNotificationWithIcon(
-    //     'error',
-    //     'Something went wrong! Please try again'
-    //   );
-    // }
-  };
+  //   formData.append('data', JSON.stringify(building));
+  //   if (thumbnail && thumbnail[0])
+  //     formData.append('thumbnail', thumbnail[0].originFileObj);
+
+  //   const config = { headers: { 'Content-Type': 'multipart/form-data' } };
+  //   try {
+  //     const { data } = await axios.post(
+  //       '/api/v1/report-building',
+  //       formData,
+  //       config
+  //     );
+  //     if (data.statusCode === 201) {
+  //       openNotificationWithIcon(
+  //         'success',
+  //         'Great !! You added the empty building successfully'
+  //       );
+  //       redirectToView();
+  //     } else if (data.statusCode === 400) {
+  //       openNotificationWithIcon('error', data.error);
+  //     } else if (data.statusCode === 409) {
+  //       openNotificationWithIcon('info', 'The building is already exist');
+  //     }
+  //   } catch (err) {
+  //     this.setState({ loading: false });
+  //     openNotificationWithIcon(
+  //       'error',
+  //       'Something went wrong! Please try again'
+  //     );
+  //   }
+  // };
 
   getStep = current => {
     const {
       stepOneValues,
       stepTwoValues,
       stepThreeValues,
+      stepFourValues,
+      stepFiveValues,
+
       loading,
     } = this.state;
-
-    const { city, location, onCityChange } = this.props;
 
     switch (current) {
       case 0:
         return (
-          <FirstStep
-            stepOneValues={stepOneValues}
-            city={city}
-            location={location}
-            onCityChange={onCityChange}
-            submittedValues={this.getStepOneValues}
+          <Five
+            stepFiveValues={stepFiveValues}
+            submittedValues={this.getStepFiveValues}
             handleNext={() => this.next()}
+            handleBack={() => this.prev()}
           />
         );
+
       case 1:
         return (
           <SecondStep
@@ -192,6 +242,23 @@ class Form extends Component {
           />
         );
       case 2:
+        return (
+          <Four
+            stepFourValues={stepFourValues}
+            submittedValues={this.getStepFourValues}
+            handleNext={() => this.next()}
+            handleBack={() => this.prev()}
+          />
+        );
+      case 3:
+        return (
+          <FirstStep
+            stepOneValues={stepOneValues}
+            submittedValues={this.getStepOneValues}
+            handleNext={() => this.next()}
+          />
+        );
+      case 4:
         return (
           <ThirdStep
             stepThreeValues={stepThreeValues}
@@ -242,7 +309,7 @@ Form.propTypes = {
   city: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   onCityChange: PropTypes.func.isRequired,
-  // redirectToView: PropTypes.func.isRequired,
+  redirectToView: PropTypes.func.isRequired,
   // longitude: PropTypes.number.isRequired,
   // latitude: PropTypes.number.isRequired,
 };

@@ -17,6 +17,41 @@
   
 }
 
+.success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #3c763d;
+    padding: 8px 5px;
+    font-size: 12px;
+    border-radius: 0px !important;
+}
+.danger{
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+  border-radius: 0px !important;
+  padding: 8px 5px;
+
+  margin-top: 5px;
+  font-size: 12px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+}
+.info{
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+  border-radius: 0px !important;
+  padding: 8px 5px;
+
+  margin-top: 5px;
+  font-size: 12px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f;
+}
 .steps {
   margin-bottom: 4%;
   text-align: justify;

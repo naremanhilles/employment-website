@@ -27,7 +27,6 @@ class FirstStep extends React.Component {
     validateFields((err, values) => {
       const val = { ...values };
       if (!err) {
-        if (!val.isOwnerLocal) val.isOwnerLocal = 'N/A';
         submittedValues(val);
         handleNext();
       }
@@ -35,13 +34,6 @@ class FirstStep extends React.Component {
   };
 
   render() {
-    const {
-      onCityChange,
-      location,
-      city,
-      stepOneValues: { previousUse, isOwnerLocal, knownAddress, owner },
-      form: { getFieldDecorator },
-    } = this.props;
 
     return (
       <FormAnt onSubmit={this.validateInput} layout="vertical">

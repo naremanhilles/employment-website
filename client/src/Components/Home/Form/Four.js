@@ -29,7 +29,7 @@ const SecondStep = props => {
     submittedValues,
     handleNext,
     handleBack,
-    stepTwoValues: {
+    stepFourValues: {
       emptyPeriod,
       mobile,
       name,
@@ -57,7 +57,6 @@ const SecondStep = props => {
 
   const storeValues = () => {
     const values = getFieldsValue();
-
     submittedValues(values);
     handleBack();
   };
@@ -72,7 +71,7 @@ const SecondStep = props => {
   return (
     <FormAnt onSubmit={validateInput} layout="vertical">
       <FormAnt.Item className={styles.item} label={<span>الدولة</span>}>
-        {getFieldDecorator('country', {
+        {getFieldDecorator('emptyPeriod', {
           rules: [
             {
               required: true,
@@ -93,7 +92,7 @@ const SecondStep = props => {
           </Select>
         )}
       </FormAnt.Item>
-      <FormAnt.Item className={styles.item} label={<span>الإسم الأول</span>}>
+      <FormAnt.Item className={styles.item} label={<span>الإسم المؤسسة</span>}>
         {getFieldDecorator('name', {
           rules: [
             {
@@ -105,20 +104,22 @@ const SecondStep = props => {
           initialValue: name,
         })(<Input type="text" id="name" />)}
       </FormAnt.Item>
-
-      <FormAnt.Item className={styles.item} label={<span>رقم الجوال</span>}>
-        {getFieldDecorator('mobile', {
-          rules: [
-            {
-              required: true,
-              message: 'الرجاء ملئ الحقل بارقام',
-              pattern: /^\+?[0-9]{10,12}$/,
-            },
-          ],
-          initialValue: mobile,
-        })(<Input type="text" id="mobile" />)}
+      <FormAnt.Item
+        className={styles.item}
+        label={
+          <span>
+            عن المؤسسة
+            {/* <span style={{ color: '#888' }}> (Optional)</span> */}
+          </span>
+        }
+      >
+        {getFieldDecorator('preferredUse', {
+          rules: [{ required: true, message: 'Please add the prefered use' }],
+          initialValue: preferredUse,
+        })(<TextArea rows={3} placeholder="وصف مختصر..." />)}
       </FormAnt.Item>
-      <FormAnt.Item className={styles.item} label={<span>تاريخ الميلاد</span>}>
+
+      <FormAnt.Item className={styles.item} label={<span>تاريخ الإنشاء</span>}>
         {getFieldDecorator('birthdate', {
           rules: [
             {
@@ -130,12 +131,12 @@ const SecondStep = props => {
           <DatePicker
             defaultValue={moment('1988/07/18', dateFormat)}
             format={dateFormat}
-            placeholder="1988/07/18"
+            placeholder="2020/02/07"
           />
         )}
       </FormAnt.Item>
 
-      <FormAnt.Item className={styles.item} label={<span>الإسم الأخير</span>}>
+      <FormAnt.Item className={styles.item} label={<span> كلمة الحماية</span>}>
         {getFieldDecorator('lastname', {
           rules: [
             {
@@ -148,15 +149,46 @@ const SecondStep = props => {
         })(<Input type="text" id="lastname" />)}
       </FormAnt.Item>
 
-      <FormAnt.Item className={styles.item} label={<span>الجنس</span>}>
+      <FormAnt.Item className={styles.item} label={<span>العملة</span>}>
         {getFieldDecorator('gender', {
-          rules: [{ required: true, message: 'يرجى تحديد الجنس' }],
+          rules: [{ required: true, message: 'يرجى تحديد العملة' }],
           initialValue: gender,
         })(
           <Select id="gender" style={{ width: 80 }}>
-            <Option value="false">ذكر</Option>
-            <Option value="true">أنثى </Option>
+            <Option value="1">دولار</Option>
+            <Option value="2">يورو </Option>
+            <Option value="3">ريال</Option>
+            <Option value="4">درهم</Option>
+            <Option value="5">دينار</Option>
+            <Option value="6">ين</Option>
           </Select>
+        )}
+      </FormAnt.Item>
+      <FormAnt.Item
+        className={styles.item}
+        label={
+          <span>
+            تحميل صورة شعار المؤسسة
+            <span style={{ color: '#888' }}> (إختياري)</span>
+          </span>
+        }
+      >
+        {getFieldDecorator('thumbnail', {
+          valuePropName: 'fileList',
+          getValueFromEvent: normFile,
+          initialValue: thumbnail,
+        })(
+          <Upload
+            name="logo"
+            accept="image/*"
+            multiple={false}
+            customRequest={() => {}}
+            listType="picture"
+          >
+            <Button className={styles.white}>
+              <Icon type="upload" /> تحميل
+            </Button>
+          </Upload>
         )}
       </FormAnt.Item>
 
@@ -226,16 +258,16 @@ const SecondStep = props => {
           </Upload>
         )}
       </FormAnt.Item> */}
-      <div className={styles.success}>
-        {' '}
-        ستصلك رسالة تأكيد الجوال , إحتفظ بها لتقوم بتأكيده فيما بعد
+      <div className={styles.danger}>
+        <i className="fa fa-info-circle" /> تستخدم فى حماية بيانات المؤسسة حيث تطلب
+        عند الحذف أو التعديل
       </div>
       <hr
-          style={{
-            width: '90%',
-            marginLeft: '5%',
-          }}
-        />
+        style={{
+          width: '90%',
+          marginLeft: '5%',
+        }}
+      />
       <FormAnt.Item>
         <Button
           className={`prevButton  ${styles.white} ${styles['ml-0']}`}
@@ -262,7 +294,7 @@ SecondStep.propTypes = {
   submittedValues: PropTypes.func.isRequired,
   handleNext: PropTypes.func.isRequired,
   handleBack: PropTypes.func.isRequired,
-  stepTwoValues: PropTypes.objectOf(PropTypes.any).isRequired,
+  stepFourValues: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 const WrappedStep = FormAnt.create({ name: 'validate_other' })(SecondStep);
