@@ -48,6 +48,7 @@ class FirstStep extends React.Component {
     const validateInput = e => {
       e.preventDefault();
       const val = items;
+      console.log(val[0], 789999999999);
       submittedValues(val);
       handleNext();
     };

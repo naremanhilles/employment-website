@@ -9,6 +9,7 @@ import SecondStep from './SecondStep';
 import ThirdStep from './ThirdStep';
 import Four from './Four';
 import Five from './FiveStep';
+import Six from './SixStep';
 
 import styles from './form.module.css';
 
@@ -68,6 +69,7 @@ class Form extends Component {
       gender: '',
     },
     stepFiveValues: [],
+    stepSixValues: [],
     stepThreeValues: {
       reporterName: '',
       reporterEmail: '',
@@ -116,21 +118,15 @@ class Form extends Component {
   };
 
   getStepFiveValues = values => {
-    // console.log(values, 555555); // 'طبعها
-    // this.setState({ stepFiveValues: values });
-    // console.log(this.state, 44444); // ما عدلها ضلت فاضية  الاري ليش؟؟؟؟
-    //حل اخر وبرضو ضلت فاضية
-    // const { stepFiveValues } = this.state;
-    // console.log(222222222, values);
-    // console.log(111111, stepFiveValues);
-    // const newarr = [...stepFiveValues];
-    // console.log(3333333, newarr);
-    // values.map(val => {
-    //   newarr.push(val);
-    //   console.log(555555, newarr);
-    // });
-    // this.setState({ stepFiveValues: newarr });
-    // console.log(666666666, this.state);///فاضة
+    this.setState({ stepFiveValues: values }, () => {
+      console.log(this.state, 44444444444);
+    });
+  };
+
+  getStepSixValues = values => {
+    this.setState({ stepSixValues: values }, () => {
+      console.log(this.state, 555555555);
+    });
   };
 
   getStepThreeValues = values => {
@@ -225,6 +221,7 @@ class Form extends Component {
       stepThreeValues,
       stepFourValues,
       stepFiveValues,
+      stepSixValues,
 
       loading,
     } = this.state;
@@ -239,8 +236,17 @@ class Form extends Component {
             handleBack={() => this.prev()}
           />
         );
-
       case 1:
+        return (
+          <Six
+            prevData={this.state.stepFiveValues}
+            stepSixValues={stepSixValues}
+            submittedValues={this.getStepSixValues}
+            handleNext={() => this.next()}
+            handleBack={() => this.prev()}
+          />
+        );
+      case 2:
         return (
           <SecondStep
             stepTwoValues={stepTwoValues}
@@ -249,7 +255,7 @@ class Form extends Component {
             handleBack={() => this.prev()}
           />
         );
-      case 2:
+      case 3:
         return (
           <Four
             stepFourValues={stepFourValues}
@@ -258,7 +264,7 @@ class Form extends Component {
             handleBack={() => this.prev()}
           />
         );
-      case 3:
+      case 4:
         return (
           <FirstStep
             stepOneValues={stepOneValues}
@@ -266,7 +272,7 @@ class Form extends Component {
             handleNext={() => this.next()}
           />
         );
-      case 4:
+      case 5:
         return (
           <ThirdStep
             stepThreeValues={stepThreeValues}
