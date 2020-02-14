@@ -1,16 +1,17 @@
 import React from 'react';
-import { Form as FormAnt, Input, Button } from 'antd';
-// import PropTypes from 'prop-types';
+import { Form as FormAnt, Radio, Select, Input, Button } from 'antd';
+import PropTypes from 'prop-types';
 
 import styles from './form.module.css';
+
+const { Option } = Select;
 
 class FirstStep extends React.Component {
   state = {
     bb: false,
-  };
-
-  enterLoading = () => {
-    this.setState({ bb: true });
+    items: [],
+    name: '',
+    lastname: '',
   };
 
   render() {
@@ -18,56 +19,49 @@ class FirstStep extends React.Component {
       submittedValues,
       handleNext,
       handleBack,
-      stepFiveValues: { name, lastname },
-      form: {
-        getFieldDecorator,
-        validateFields,
-        getFieldsValue,
-        resetFields,
-        setFieldsValue,
-      },
+      // stepFiveValues: { name, lastname },
+      form: { getFieldDecorator, validateFields, getFieldsValue, resetFields },
     } = this.props;
-    // deleteItem=(id)=>{
-    //   const values = getFieldsValue();
-
-    // }
-
-    const { bb } = this.state;
+    const { bb, items, name, lastname } = this.state;
     const renderAuthButton = () => {
       if (bb) {
         const values = JSON.parse(JSON.stringify(getFieldsValue()));
-        // const values = getFieldsValue();
-        values.id = Math.random();
-        console.log(values, 333333);
-
-        const arrayItem = [];
-        arrayItem.push(values);
-        console.log(arrayItem, 2222222);
+        if (values.name !== '' && values.lastname !== '') {
+          validateFields((err, values) => {
+            const val = { ...values };
+            if (!err) {
+              val.id = Math.random();
+              const newarr = [...items];
+              newarr.push(val);
+              this.setState({ items: newarr });
+            }
+          });
+        }
         resetFields();
-        return (
-          <div key={arrayItem[0].id}>
-            <h1>{arrayItem[0].name}</h1>
-            <h1>{arrayItem[0].lastname}</h1>
-            <h1>&times;</h1>
-          </div>
-        );
       }
+    };
+    const enterLoading = () => {
+      this.setState({ bb: true }, () => {
+        renderAuthButton();
+      });
     };
     const validateInput = e => {
       e.preventDefault();
-      validateFields((err, values) => {
-        const val = { ...values };
-        if (!err) {
-          submittedValues(val);
-          handleNext();
-        }
-      });
+      const val = items;
+      submittedValues(val);
+      handleNext();
     };
-
     const storeValues = () => {
-      const values = getFieldsValue();
+      const values = items;
+
       submittedValues(values);
       handleBack();
+    };
+    const deleteItem = id => {
+      const newitems = items.filter(item => {
+        return item.id !== id;
+      });
+      this.setState({ items: newitems });
     };
 
     return (
@@ -103,7 +97,20 @@ class FirstStep extends React.Component {
             initialValue: lastname,
           })(<Input type="text" id="lastname" />)}
         </FormAnt.Item>
-        {renderAuthButton()}
+        <div>
+          <span>الفرع</span>
+          <span>حذف</span>
+        </div>
+        {items.length
+          ? items.map(ele => (
+              <div key={ele.id}>
+                <span>
+                  {ele.name} {ele.lastname}
+                </span>
+                <span onClick={() => deleteItem(ele.id)}>&times;</span>
+              </div>
+            ))
+          : null}
         <div className={styles.info}>
           <i className="fa fa-info-circle" /> يمكنك تجاهل هذه الخطوة إذا لم يكن
           لمؤسستك أى فروع أو أقسام
@@ -116,7 +123,7 @@ class FirstStep extends React.Component {
         />
         <Button
           className={`prevButton  ${styles.white} ${styles['ml-0']}`}
-          onClick={this.enterLoading}
+          onClick={enterLoading}
         >
           أضف
         </Button>
@@ -143,15 +150,15 @@ class FirstStep extends React.Component {
   }
 }
 
-// FirstStep.propTypes = {
-//   form: PropTypes.objectOf(PropTypes.any).isRequired,
-//   location: PropTypes.string.isRequired,
-//   city: PropTypes.string.isRequired,
-//   onCityChange: PropTypes.func.isRequired,
-//   submittedValues: PropTypes.func.isRequired,
-//   handleNext: PropTypes.func.isRequired,
-//   stepOneValues: PropTypes.objectOf(PropTypes.any).isRequired,
-// };
+FirstStep.propTypes = {
+  form: PropTypes.objectOf(PropTypes.any).isRequired,
+  // location: PropTypes.string.isRequired,
+  // city: PropTypes.string.isRequired,
+  // onCityChange: PropTypes.func.isRequired,
+  submittedValues: PropTypes.func.isRequired,
+  handleNext: PropTypes.func.isRequired,
+  // stepOneValues: PropTypes.objectOf(PropTypes.any).isRequired,
+};
 
 const WrappedStep = FormAnt.create({ name: 'validate_other' })(FirstStep);
 

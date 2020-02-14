@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Steps, notification } from 'antd';
 import PropTypes from 'prop-types';
 // import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 import FirstStep from './First';
 import SecondStep from './SecondStep';
@@ -66,10 +67,7 @@ class Form extends Component {
       country: 'السعودية',
       gender: '',
     },
-    stepFiveValues: {
-      name: '',
-      lastname: '',
-    },
+    stepFiveValues: [],
     stepThreeValues: {
       reporterName: '',
       reporterEmail: '',
@@ -96,6 +94,8 @@ class Form extends Component {
   };
 
   getStepTwoValues = values => {
+    console.log(values, 7777777);
+
     const { stepTwoValues } = this.state;
     this.setState({
       stepTwoValues: {
@@ -116,13 +116,15 @@ class Form extends Component {
   };
 
   getStepFiveValues = values => {
-    const { stepFiveValues } = this.state;
-    this.setState({
-      stepFiveValues: {
-        ...stepFiveValues,
-        ...values,
-      },
+    this.setState(prevState => {
+      let { stepFiveValues } = prevState;
+      stepFiveValues = [...values];
+      console.log(this.state, 55555);
+      return {
+        stepFiveValues,
+      };
     });
+    console.log(this.state, 44444);
   };
 
   getStepThreeValues = values => {
