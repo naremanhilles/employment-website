@@ -116,15 +116,9 @@ class Form extends Component {
   };
 
   getStepFiveValues = values => {
-    this.setState(prevState => {
-      let { stepFiveValues } = prevState;
-      stepFiveValues = [...values];
-      console.log(this.state, 55555);
-      return {
-        stepFiveValues,
-      };
-    });
-    console.log(this.state, 44444);
+    console.log(values, 555555); // 'طبعها
+    this.setState({ stepFiveValues: values });
+    console.log(this.state, 44444); // ما عدلها ضلت فاضية  الاري ليش؟؟؟؟
   };
 
   getStepThreeValues = values => {
