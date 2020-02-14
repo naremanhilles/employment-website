@@ -116,9 +116,21 @@ class Form extends Component {
   };
 
   getStepFiveValues = values => {
-    console.log(values, 555555); // 'طبعها
-    this.setState({ stepFiveValues: values });
-    console.log(this.state, 44444); // ما عدلها ضلت فاضية  الاري ليش؟؟؟؟
+    // console.log(values, 555555); // 'طبعها
+    // this.setState({ stepFiveValues: values });
+    // console.log(this.state, 44444); // ما عدلها ضلت فاضية  الاري ليش؟؟؟؟
+    //حل اخر وبرضو ضلت فاضية
+    // const { stepFiveValues } = this.state;
+    // console.log(222222222, values);
+    // console.log(111111, stepFiveValues);
+    // const newarr = [...stepFiveValues];
+    // console.log(3333333, newarr);
+    // values.map(val => {
+    //   newarr.push(val);
+    //   console.log(555555, newarr);
+    // });
+    // this.setState({ stepFiveValues: newarr });
+    // console.log(666666666, this.state);///فاضة
   };
 
   getStepThreeValues = values => {
