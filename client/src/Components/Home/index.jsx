@@ -16,6 +16,8 @@ export default class MyApplications extends React.Component {
   };
 
   redirectToView = () => {
+    const { turnAuthHeader } = this.props;
+    turnAuthHeader();
     const { history } = this.props;
     if (history) history.push('/');
   };

@@ -52,7 +52,8 @@ class Header extends Component {
   };
 
   render() {
-    const { islogged } = this.props;
+    const { islogged, isHead } = this.props;
+    console.log(1111111, 44444, isHead);
     const {
       userInfo: { username, avatar, defaultAvatar },
     } = this.state;
@@ -110,19 +111,31 @@ class Header extends Component {
                     <div className="navbar__link--text">Home</div>
                   </NavLink>
 
-                  <NavLink to="/app/my-applications" className="navbar__link">
+                  <NavLink
+                    to={isHead ? '/app/my-applications' : '/app/home'}
+                    className="navbar__link"
+                  >
                     <div className="navbar__link--text">My Applications</div>
                   </NavLink>
 
-                  <NavLink to="/app/my-offers" className="navbar__link">
+                  <NavLink
+                    to={isHead ? '/app/my-offers' : '/app/home'}
+                    className="navbar__link"
+                  >
                     <div className="navbar__link--text">My Offers</div>
                   </NavLink>
 
-                  <NavLink to="/app/saved-offers" className="navbar__link">
+                  <NavLink
+                    to={isHead ? '/app/saved-offers' : '/app/home'}
+                    className="navbar__link"
+                  >
                     <div className="navbar__link--text">Saved Offers</div>
                   </NavLink>
 
-                  <NavLink to="/app/new-offer" className="navbar__link">
+                  <NavLink
+                    to={isHead ? '/app/new-offer' : '/app/home'}
+                    className="navbar__link"
+                  >
                     <div className="navbar__link--text">New Offer</div>
                   </NavLink>
                 </Nav>
@@ -146,7 +159,7 @@ class Header extends Component {
                   <Dropdown.Menu className="dropdown__menu-avatar">
                     <Dropdown.Item
                       as={Link}
-                      to={`/app/profile/${username}`}
+                      to={isHead ? `/app/profile/${username}` : '/app/home'}
                       className="dropdown__item"
                     >
                       Profile

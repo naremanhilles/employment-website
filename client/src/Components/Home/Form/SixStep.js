@@ -1,5 +1,12 @@
 import React from 'react';
-import { Form as FormAnt, Radio, Select, Input, Button } from 'antd';
+import {
+  Form as FormAnt,
+  Radio,
+  Select,
+  Input,
+  Button,
+  notification,
+} from 'antd';
 import PropTypes from 'prop-types';
 
 import styles from './form.module.css';
@@ -47,11 +54,27 @@ class FirstStep extends React.Component {
         renderAuthButton(deprtment);
       });
     };
+    const openNotificationWithIcon = (type, message) => {
+      notification[type]({
+        message,
+        duration: 4,
+      });
+    };
     const validateInput = e => {
       e.preventDefault();
       const val = items;
-      submittedValues(val);
-      handleNext();
+      console.log('im', 45, val);
+      if (items.length > 0) {
+        console.log(11111111);
+        submittedValues(val);
+        handleNext();
+      } else {
+        console.log(222222);
+        openNotificationWithIcon(
+          'error',
+          'لم تقم بإضافة أقسام فى بعض الفروع يجب إضافة قسم واحد على الأقل فى كل فرع'
+        );
+      }
     };
     const storeValues = () => {
       const values = items;
@@ -117,8 +140,17 @@ class FirstStep extends React.Component {
                   </div>
                   {items.length ? (
                     items.map(ele => {
-                      console.log(111111);
-                      return <p>{ele.name}</p>;
+                      console.log(111111, ele.dep);
+                      return ele.dep === val.id ? (
+                        <div key={ele.id}>
+                          <span>
+                            {ele.name} {ele.lastname}
+                          </span>
+                          <span onClick={() => deleteItem(ele.id)}>
+                            &times;
+                          </span>
+                        </div>
+                      ) : null;
                       // {
                       //   ele.dep === val.id ? (
                       //     <div key={ele.id}>
@@ -151,7 +183,7 @@ class FirstStep extends React.Component {
                   />
                   <Button
                     className={`prevButton  ${styles.white} ${styles['ml-0']}`}
-                    onClick={enterLoading(val.id)}
+                    onClick={() => enterLoading(val.id)}
                   >
                     أضف
                   </Button>

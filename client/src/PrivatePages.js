@@ -13,7 +13,9 @@ import {
 import Home from './Components/Home/index';
 import PrivateRoute from './auth/PrivateRoute';
 
-function PrivatePages() {
+function PrivatePages(props) {
+  const { turnAuthHeader } = props;
+
   return (
     <>
       <Switch>
@@ -22,7 +24,12 @@ function PrivatePages() {
           path="/app/my-applications"
           component={MyApplications}
         />
-        <PrivateRoute exact path="/app/home" component={Home} />
+        <PrivateRoute
+          exact
+          path="/app/home"
+          turnAuthHeader={turnAuthHeader}
+          component={Home}
+        />
         <PrivateRoute exact path="/app/my-offers" component={MyOffers} />
         <PrivateRoute
           exact
