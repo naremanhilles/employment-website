@@ -4,7 +4,6 @@ import {
   Radio,
   Select,
   Input,
-  key,
   Button,
   notification,
 } from 'antd';
@@ -22,7 +21,7 @@ class FirstStep extends React.Component {
     name: '',
     lastname: '',
     NNN: '',
-    key: '',
+    valm: '',
   };
 
   render() {
@@ -33,7 +32,7 @@ class FirstStep extends React.Component {
       handleBack,
       form: { getFieldDecorator, validateFields, getFieldsValue, resetFields },
     } = this.props;
-    const { bb, items, name, lastname, NNN, key } = this.state;
+    const { bb, items, name, lastname, NNN, valm } = this.state;
 
     const renderAuthButton = depname => {
       if (bb) {
@@ -62,7 +61,7 @@ class FirstStep extends React.Component {
 
     const handleChange = value => {
       console.log(111111, value);
-      this.setState({ key: value });
+      this.setState({ valm: value });
     };
     const openNotificationWithIcon = (type, message) => {
       notification[type]({
@@ -99,7 +98,6 @@ class FirstStep extends React.Component {
       });
       this.setState({ items: newitems });
     };
-    console.log(2222222, key);
 
     return (
       <>
@@ -124,7 +122,7 @@ class FirstStep extends React.Component {
             )}
           </FormAnt.Item>
           {/* 999999999999999999999 بكرا comp */}
-          {key !== '' ? <EmpDiv key={key} /> : null}
+          {valm !== '' ? <EmpDiv valm={valm} /> : null}
           <FormAnt.Item>
             <Button
               className={`prevButton  ${styles.white} ${styles['ml-0']}`}

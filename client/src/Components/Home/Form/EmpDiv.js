@@ -201,8 +201,9 @@ class OfferCard extends React.Component {
       offerId,
     } = this.state;
     // eslint-disable-next-line react/prop-types
-    const { hover, history, key } = this.props;
-    console.log(555555555, key);
+    // 9999999999999999 valm and continu
+    const { hover, history, valm } = this.props;
+    console.log(555555555, valm);
     return (
       <>
         {showAlert ? (
