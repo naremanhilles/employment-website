@@ -82,7 +82,7 @@ export default class Login extends React.Component {
         <Form className="login__form">
           <h2 className="login__form-title">LOGIN</h2>
           <Form.Group>
-            <Form.Label>Username :</Form.Label>
+            <Form.Label>اسم المستخدم :</Form.Label>
             <Form.Control
               type="text"
               name="username"
@@ -92,7 +92,7 @@ export default class Login extends React.Component {
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label>Password :</Form.Label>
+            <Form.Label>كلمة المرور :</Form.Label>
             <Form.Control
               type="password"
               name="password"
@@ -107,12 +107,12 @@ export default class Login extends React.Component {
             className="login__form-btn"
             onClick={this.handleClick}
           >
-            Login
+            سجل دخول
           </Button>
           <Form.Text className="login__form__text-muted">
-            Don’t have an account?{' '}
+            ليس لديك حساب سابق سجل دخول{' '}
             <Link className="link-signup-word" to="/signup">
-              sign up
+              أنشىء حساب
             </Link>
           </Form.Text>
         </Form>

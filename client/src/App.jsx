@@ -19,7 +19,6 @@ import {
 // new-ticket//show-ticit//activat
 
 import Termsconditions from './Components/Termsconditions/index';
-
 import Privacy from './Components/Privacy/index';
 import Features from './Components/Features/index';
 import Contact from './Components/Contact/index';
@@ -45,10 +44,6 @@ import Qustion14 from './Components/Qus14/index';
 export default class App extends Component {
   state = {
     isHead: false,
-    items: [
-      { id: 1, name: 'gghgg', age: 18 },
-      { id: 2, name: 'uuuu', age: 19 },
-    ],
     islogged: null,
     userInfo: null,
   };

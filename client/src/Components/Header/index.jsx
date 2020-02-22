@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink, Link, withRouter } from 'react-router-dom';
-import { Navbar, Nav, Col, Dropdown, Alert } from 'react-bootstrap';
+import { Navbar, Nav, Col, Dropdown } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Notification from './Notification';
 import './style.css';
@@ -53,7 +53,6 @@ class Header extends Component {
 
   render() {
     const { islogged, isHead } = this.props;
-    console.log(1111111, 44444, isHead);
     const {
       userInfo: { username, avatar, defaultAvatar },
     } = this.state;
@@ -82,13 +81,13 @@ class Header extends Component {
           {!islogged && (
             <Col md="auto">
               <Nav>
-                <NavLink to="/" className="navbar__link">
+                <NavLink to="/help" className="navbar__link">
                   <div className="navbar__link--text">
                     مركز المساعدة
                     <i className="fa fa-anchor" />
                   </div>
                 </NavLink>
-                <NavLink to="/login" className="navbar__link">
+                <NavLink to="/features" className="navbar__link">
                   <div className="navbar__link--text">
                     الخصائص والمميزات
                     <i className="fa fa-trophy" />
@@ -108,36 +107,36 @@ class Header extends Component {
               <Col md="auto">
                 <Nav>
                   <NavLink to="/app/home" className="navbar__link">
-                    <div className="navbar__link--text">Home</div>
+                    <div className="navbar__link--text">المؤسسة</div>
                   </NavLink>
 
                   <NavLink
-                    to={isHead ? '/app/my-applications' : '/app/home'}
+                    to={isHead ? '/' : '/app/home'}
                     className="navbar__link"
                   >
-                    <div className="navbar__link--text">My Applications</div>
+                    <div className="navbar__link--text">التطبيقات</div>
                   </NavLink>
 
                   <NavLink
-                    to={isHead ? '/app/my-offers' : '/app/home'}
+                    to={isHead ? '/' : '/app/home'}
                     className="navbar__link"
                   >
-                    <div className="navbar__link--text">My Offers</div>
+                    <div className="navbar__link--text">المهام</div>
                   </NavLink>
 
                   <NavLink
-                    to={isHead ? '/app/saved-offers' : '/app/home'}
+                    to={isHead ? '/' : '/app/home'}
                     className="navbar__link"
                   >
-                    <div className="navbar__link--text">Saved Offers</div>
+                    <div className="navbar__link--text">المشاريع</div>
                   </NavLink>
-
+                  {/* 
                   <NavLink
                     to={isHead ? '/app/new-offer' : '/app/home'}
                     className="navbar__link"
                   >
                     <div className="navbar__link--text">New Offer</div>
-                  </NavLink>
+                  </NavLink> */}
                 </Nav>
               </Col>
               <Col md="auto">
@@ -162,7 +161,7 @@ class Header extends Component {
                       to={isHead ? `/app/profile/${username}` : '/app/home'}
                       className="dropdown__item"
                     >
-                      Profile
+                      الملف الشخصي
                     </Dropdown.Item>
                     <Dropdown.Divider />
                     <Dropdown.Item
@@ -170,7 +169,7 @@ class Header extends Component {
                       onClick={this.handleLogout}
                       className="dropdown__item"
                     >
-                      Logout
+                      سجيل الخروج
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>

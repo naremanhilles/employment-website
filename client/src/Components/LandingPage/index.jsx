@@ -8,8 +8,6 @@ import GrayBox from './GrayBox/graybox';
 
 import './style.css';
 
-import Slider from './Slider';
-
 export default function LandingPage() {
   return (
     <>
@@ -38,23 +36,6 @@ export default function LandingPage() {
       <h2 className="landing__title landing__title--center">
         تعامل**إنجاز**نقاش
       </h2>
-      <Slider />
-      <Row className="landing__aboutus">
-        <Col className="about__info">
-          <h2 className="landing__title">About us</h2>
-          <p className="about__paragraph">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Consectetur libero velit soluta voluptas neque, reiciendis ullam,
-            quidem cupiditate sequi necessitatibus facilis perspiciatis quis
-            saepe voluptatum totam est, maxime suscipit ducimus? Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Debitis, excepturi
-            rerum! Tempora suscipit debitis distinctio itaque sed deleniti,
-            similique, officiis illo, quisquam tempore quos ullam eum ab dolorem
-            est quibusdam.
-          </p>
-        </Col>
-        <Col className="about__img" />
-      </Row>
 
       <div className="section_1">
         <div className="container">
