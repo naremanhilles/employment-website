@@ -33,10 +33,17 @@ export default function LandingPage() {
           </h1>
         </Col>
       </Row>
-      <h2 className="landing__title landing__title--center">
-        تعامل**إنجاز**نقاش
-      </h2>
 
+      <div className="landing_statistics">
+        <h1>
+          مدير المشاريع في أرقام
+          <i className="far fa-chart-bar" />
+        </h1>
+        <CountUp stat_title="مؤسسة" stat_desc="تدير أعمالها" end={1679} />
+        <CountUp stat_title="موظف" stat_desc="يتلقى المهام" end={4724} />
+        <CountUp stat_title="مشروع" stat_desc="تم البدء فيه" end={2309} />
+        <CountUp stat_title="مهمة" stat_desc="تم إسنادها" end={4867} />
+      </div>
       <div className="section_1">
         <div className="container">
           <div className="text-center">
@@ -153,16 +160,7 @@ export default function LandingPage() {
           </div>
         </div>
       </div>
-      <div className="landing_statistics">
-        <h1>
-          مدير المشاريع في أرقام
-          <i className="far fa-chart-bar" />
-        </h1>
-        <CountUp stat_title="مؤسسة" stat_desc="تدير أعمالها" end={1679} />
-        <CountUp stat_title="موظف" stat_desc="يتلقى المهام" end={4724} />
-        <CountUp stat_title="مشروع" stat_desc="تم البدء فيه" end={2309} />
-        <CountUp stat_title="مهمة" stat_desc="تم إسنادها" end={4867} />
-      </div>
+
       <div className="section_6 text-center">
         <div>
           <a href="/" className="section_6_btn">
